@@ -9,14 +9,22 @@
   <body>
     <h1 id="status">Menunggu Rust...</h1>
     
-    <script type="module">
-      import init from './pkg/rust_pwa_app.js';
-      async function run() {
+<script type="module">
+  // Sesuaikan nama file .js dengan nama package di Cargo.toml
+  import init from './pkg/rust_pwa_app.js'; 
+  
+  async function run() {
+      try {
           await init();
-          // Rust akan otomatis menjalankan fungsi #[wasm_bindgen(start)]
+          console.log("Rust Loaded!");
+      } catch (err) {
+          console.error("Gagal load Rust:", err);
       }
-      run();
-    </script>
+  }
+  run();
+</script>
+
+
   </body>
 </html>
 
