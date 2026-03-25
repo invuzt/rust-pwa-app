@@ -14,6 +14,11 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      # --- BAGIAN TURBO/CACHE DIMULAI ---
+      - name: Rust Cache
+        uses: swatinem/rust-cache@v2
+      # --- BAGIAN TURBO/CACHE SELESAI ---
+
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
@@ -25,4 +30,5 @@ jobs:
         with:
           folder: www
           branch: gh-pages
+          clean: true
 
