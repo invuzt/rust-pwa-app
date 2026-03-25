@@ -1,14 +1,14 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+use wasm_bindgen::prelude::*;
+
+// Kita "meminjam" fungsi window.alert dari JavaScript
+#[wasm_bindgen]
+extern "C" {
+    fn alert(s: &str);
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+// Fungsi ini yang akan dipanggil saat PWA dibuka
+#[wasm_bindgen(start)]
+pub fn run() {
+    alert("Halo! Ini adalah pesan dari Rust Engine 🦀");
 }
+
