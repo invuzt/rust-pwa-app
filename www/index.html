@@ -5,13 +5,18 @@
     <title>Rust PWA App</title>
     <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="module">
-      import init from './pkg/rust_pwa_app.js';
-      init();
-    </script>
   </head>
   <body>
-    <h1>Rust + PWA via Termux</h1>
+    <h1 id="status">Menunggu Rust...</h1>
+    
+    <script type="module">
+      import init from './pkg/rust_pwa_app.js';
+      async function run() {
+          await init();
+          // Rust akan otomatis menjalankan fungsi #[wasm_bindgen(start)]
+      }
+      run();
+    </script>
   </body>
 </html>
 
